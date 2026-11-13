@@ -32,7 +32,8 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 | Élément | Valeur |
 | --- | --- |
 | Branche publiée | `feature/zakaria-frontend-sprint1` (suivi de `origin/…`) |
-| Commit | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Commit d'implémentation | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Commit de documentation | `45ba585` — `docs(frontend): finalize sprint 1 documentation and repository presentation` |
 | Pull request | [#1](https://github.com/naimi123/La-table-bonne/pull/1) — ouverte, non fusionnée |
 | `main` | inchangée (`537ea81`) |
 | `README.md` d'équipe | inchangé (blob identique à `origin/main`) |

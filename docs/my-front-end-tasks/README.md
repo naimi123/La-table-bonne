@@ -127,6 +127,7 @@ réelle ne doit pas modifier les pages ni les composants.
 | Élément | Valeur |
 | --- | --- |
 | Branche | `feature/zakaria-frontend-sprint1` |
-| Commit publié | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Commit d'implémentation | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Commit de documentation | `45ba585` — `docs(frontend): finalize sprint 1 documentation and repository presentation` |
 | Pull request | [#1](https://github.com/naimi123/La-table-bonne/pull/1) — ouverte, en attente de revue |
 | `main` | non modifiée |
