@@ -80,3 +80,53 @@ npm run dev      # http://localhost:5173
 
 Voir [`../../frontend/README.md`](../../frontend/README.md) pour l'architecture du code,
 les variables d'environnement et le mode démonstration.
+
+---
+
+## Architecture et structure
+
+L'application est une SPA React (Vite + TypeScript strict). Le détail des dossiers et des
+scripts est dans [`../../frontend/README.md`](../../frontend/README.md) ; cette section
+résume ce qui est utile à la revue.
+
+### Routes
+
+| Route | Page | Accès |
+| --- | --- | --- |
+| `/` | Accueil | Public |
+| `/recherche` | Recherche (filtres `city` / `q` synchronisés à l'URL) | Public |
+| `/restaurants/:id` | Fiche restaurant — lecture seule | Public |
+| `/inscription` | Inscription (US01) | Public |
+| `/connexion` | Connexion (US02) | Public |
+| `/mot-de-passe-oublie` | Demande de réinitialisation (US03) | Public |
+| `/reinitialiser-mot-de-passe` | Nouveau mot de passe (US03) | Public, jeton requis |
+| `/compte` | Compte client | **Protégé** (`ProtectedRoute`) |
+| `*` | Page 404 | Public |
+
+### Couches
+
+| Dossier | Responsabilité |
+| --- | --- |
+| `src/pages/` | 9 pages, une par route ; composition uniquement |
+| `src/components/` | UI (`ui/`), layout (`layout/`), restaurants, authentification, routage |
+| `src/context/` | `AuthContext` : session, connexion, déconnexion |
+| `src/services/` | Logique métier isolée : `authService`, `restaurantService`, `mockAuthApi`, `apiClient`, `config`, `storage`, `restaurantFilters` |
+| `src/hooks/` | Hooks partagés (titre de page, etc.) |
+| `src/data/` | Catalogue fictif de 10 restaurants (mode démonstration) |
+| `src/utils/` | Validation et formatage (couverts par les tests unitaires) |
+| `src/styles/` | 6 feuilles CSS : `index.css` (point d'entrée) + `tokens`, `base`, `layout`, `components`, `pages` |
+
+**Point de bascule Back-End** : seule la couche `src/services/` connaît le mode
+démonstration. `VITE_USE_MOCK_API=true` active les services simulés ; le passage à l'API
+réelle ne doit pas modifier les pages ni les composants.
+
+---
+
+## Publication
+
+| Élément | Valeur |
+| --- | --- |
+| Branche | `feature/zakaria-frontend-sprint1` |
+| Commit publié | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Pull request | [#1](https://github.com/naimi123/La-table-bonne/pull/1) — ouverte, en attente de revue |
+| `main` | non modifiée |

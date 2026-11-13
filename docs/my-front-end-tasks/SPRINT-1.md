@@ -240,7 +240,8 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 ### Definition of Done
 - [x] Build et tests passants (filtrage couvert par tests unitaires).
 - [x] États chargement / vide / erreur / succès présents.
-- [x] Responsive vérifié aux points de rupture 480 / 760 / 900 / 980 px.
+- [x] Points de rupture CSS implémentés (480 / 760 / 900 / 980 px).
+- [ ] Recette visuelle réelle sur appareil (375 px) — **en attente**.
 - [ ] Capture d'écran desktop + mobile dans `evidence/`.
 - [ ] Revue de code.
 

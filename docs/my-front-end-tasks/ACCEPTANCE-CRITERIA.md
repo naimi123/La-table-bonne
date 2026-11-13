@@ -303,7 +303,7 @@ n'est implémentée.
 
 | Critère | Seuil | Vérification |
 | --- | --- | --- |
-| Accessibilité | Aucun audit Lighthouse critique | ✅ 100 / 100 |
+| Accessibilité | Aucun audit Lighthouse critique | ✅ 100 / 100 (accueil, desktop uniquement — voir [`TEST-REPORT.md`](./TEST-REPORT.md)) |
 | Contraste | ≥ 4,5:1 pour le texte courant | ✅ Corrigé (jeton `--color-muted`) |
 | Responsive | 375 px → 1440 px sans débordement horizontal | ⏳ Recette visuelle |
 | Performance | Bundle JS < 300 kB (hors gzip) | ✅ 232 kB |

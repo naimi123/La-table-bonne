@@ -18,17 +18,21 @@
 | --- | --- |
 | Build TypeScript + Vite | ✅ Succès |
 | Tests unitaires | ✅ 26 / 26 |
-| Parcours manuels | ✅ 12 / 12 conformes |
+| Parcours manuels | ✅ 14 / 14 conformes |
 | Erreurs console | ✅ 0 |
 | Audit Lighthouse — Accessibilité | ✅ 100 |
 | Audit Lighthouse — Bonnes pratiques | ✅ 100 |
 | Audit Lighthouse — SEO | ✅ 100 |
 | Anomalies bloquantes | ✅ Aucune |
 
-> Les audits Lighthouse ont été lancés sur la page d'accueil. **Premier passage :**
-> accessibilité 97, bonnes pratiques 100, SEO 83. Deux corrections ont été apportées
-> (contraste du texte secondaire et nom accessible du logo), puis le second passage a
-> donné 100 / 100 / 100.
+> **Périmètre de l'audit Lighthouse** : un seul passage, sur la **page d'accueil**
+> (`/`), dans **Chromium en viewport desktop**. Il ne s'agit **pas** d'un audit de tout le
+> site ni d'un audit mobile : les autres pages (recherche, formulaires, fiche restaurant,
+> 404) n'ont pas été auditées par Lighthouse, et aucune émulation d'appareil n'a été faite.
+>
+> **Premier passage :** accessibilité 97, bonnes pratiques 100, SEO 83. Deux corrections ont
+> été apportées (contraste du texte secondaire et nom accessible du logo), puis le second
+> passage a donné 100 / 100 / 100 sur cette même page.
 
 ---
 
@@ -42,7 +46,6 @@ Commande : `npm test` (Vitest 2.1.9)
 
 Test Files  2 passed (2)
      Tests  26 passed (26)
-  Duration  4,36 s
 ```
 
 | Fichier | Couverture fonctionnelle |
@@ -66,9 +69,13 @@ vite v5.4.21 building for production...
 ✓ 1613 modules transformed.
 dist/index.html                 0,65 kB │ gzip:  0,40 kB
 dist/assets/index-*.css        32,64 kB │ gzip:  6,81 kB
-dist/assets/index-*.js        232,21 kB │ gzip: 72,09 kB
-✓ built in 21,80 s
+dist/assets/index-*.js        232,28 kB │ gzip: 72,12 kB
+✓ built in ~8 s
 ```
+
+> Valeurs de la dernière exécution locale (13 novembre 2026, après la correction du niveau
+> de titre des pages 404). Les noms de fichiers `assets/index-*.js|css` contiennent un
+> *hash* qui change à chaque build ; seules les tailles sont stables.
 
 - TypeScript `strict`, sans erreur, avec `noUnusedLocals` et `noUnusedParameters`.
 - Aucune dépendance superflue : React, React DOM, React Router, Lucide React ;
@@ -114,9 +121,14 @@ dist/assets/index-*.js        232,21 kB │ gzip: 72,09 kB
 | Nom accessible du logo | Corrigé (le texte visible est désormais le nom accessible) |
 | Champs étiquetés | Tous les champs ont un `label` associé |
 | Erreurs annoncées | `role="alert"` + `aria-describedby` |
-| Navigation clavier | Lien d'évitement, focus visible, menu mobile pilotable |
+| Navigation clavier | Implémentée : lien d'évitement, focus visible, menu mobile pilotable (validation manuelle à faire) |
 | Mouvement réduit | `prefers-reduced-motion` respecté |
 | Images | Textes alternatifs ; images décoratives en `alt=""` |
+
+> **Limite du contrôle** : ces résultats proviennent d'un audit automatisé (Lighthouse,
+> page d'accueil, desktop). Les **vérifications manuelles restent à faire** : rendu réel à
+> 375 px sur appareil, navigation complète au clavier sur chaque page, et test avec un
+> lecteur d'écran (NVDA ou VoiceOver). Aucun de ces trois points n'est validé à ce jour.
 
 ---
 

@@ -23,6 +23,20 @@ Dernière mise à jour : **13 novembre 2026**
 
 Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — non applicable.
 
+> **Revue** : la colonne « Revue » reste à ⏳ pour les quatre stories. Le code est publié
+> et la *pull request* est ouverte ; la validation par l'équipe (Scrum Master, QA, PO)
+> n'a pas encore eu lieu.
+
+### Publication
+
+| Élément | Valeur |
+| --- | --- |
+| Branche publiée | `feature/zakaria-frontend-sprint1` (suivi de `origin/…`) |
+| Commit | `af23967` — `feat(frontend): implement sprint 1 authentication and restaurant search` |
+| Pull request | [#1](https://github.com/naimi123/La-table-bonne/pull/1) — ouverte, non fusionnée |
+| `main` | inchangée (`537ea81`) |
+| `README.md` d'équipe | inchangé (blob identique à `origin/main`) |
+
 ---
 
 ## 2. Répartition du travail réalisé (Sprint 1)
@@ -30,17 +44,29 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 | Domaine | Détail |
 | --- | --- |
 | Initialisation | Vite 5, React 18, TypeScript 5.9 (strict), React Router 6, Lucide React |
-| Design system | 5 feuilles CSS (tokens, base, layout, composants, pages), palette chaude + terracotta |
+| Design system | 6 feuilles CSS (`index.css` + tokens, base, layout, composants, pages), palette chaude + terracotta |
 | Pages | Accueil, Recherche, Inscription, Connexion, Mot de passe oublié, Réinitialisation, Compte, Fiche restaurant, 404 |
 | Composants | 12 composants UI + 4 composants de layout + 3 composants restaurants |
-| Services | `authService`, `restaurantService`, `mockAuthApi`, `apiClient`, `storage`, `restaurantFilters` |
+| Services | `authService`, `restaurantService`, `mockAuthApi`, `apiClient`, `config`, `storage`, `restaurantFilters` |
 | Validation | Prénom, nom, e-mail, mot de passe, confirmation, conditions, recherche |
 | Tests | 26 tests unitaires (validation + filtrage) |
-| Qualité | Build sans erreur, 0 erreur console, Lighthouse 100/100/100 |
+| Qualité | Build sans erreur, 0 erreur console, Lighthouse 100/100/100 (page d'accueil, desktop — voir [`TEST-REPORT.md`](./TEST-REPORT.md)) |
 
 ---
 
 ## 3. Journal des modifications
+
+### 13 novembre 2026 — Finalisation de la documentation et de la présentation GitHub
+
+- Mise à jour de l'avancement : remplacement de la mention « aucun `push` effectué » par
+  l'état réel de publication (branche, commit `af23967`, PR #1).
+- Ajout du bloc « Publication » (branche, commit, PR, état de `main`, `README.md` d'équipe).
+- Précision du périmètre de l'audit Lighthouse (page d'accueil, viewport desktop uniquement).
+- Alignement du rapport de test sur les résultats réellement mesurés (14 scénarios manuels,
+  build et tests de la dernière exécution).
+- Ajout d'une section « Architecture et structure » dans le [`README`](./README.md) du volet.
+- **En attente côté propriétaire** : captures d'écran dans `evidence/`, vérification mobile
+  375 px, navigation avec lecteur d'écran, saisie manuelle des tickets Jira.
 
 ### 13 novembre 2026 — Organisation du dépôt et publication
 
@@ -64,7 +90,9 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 - Préparation de l'architecture des Sprints 2 et 3 (fiche restaurant, services, routes protégées).
 - Rédaction des livrables Jira et de la documentation de suivi.
 - Exécution du build, des tests unitaires et des parcours manuels : tout est conforme.
-- **Aucun `push` effectué** : les modifications attendent la revue et l'autorisation.
+- **Publication effectuée** : branche `feature/zakaria-frontend-sprint1` poussée sur
+  `origin` (commit `af23967`), *pull request* [#1](https://github.com/naimi123/La-table-bonne/pull/1)
+  ouverte vers `main`. `main` n'a pas été modifiée et la PR n'a pas été fusionnée.
 
 ---
 
@@ -85,8 +113,9 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 2. **Créer** les tickets Jira listés dans `JIRA-TASKS.md` (saisie manuelle).
 3. **Capturer** les écrans listés dans chaque fichier de sprint et les déposer dans `evidence/`.
 4. **Faire valider** les critères d'acceptation US01–US04 par le PO et le QA.
-5. **Pousser** la branche puis ouvrir une *pull request* vers `main` — uniquement après
-   autorisation explicite du propriétaire du dépôt.
+5. **Faire relire et valider** la *pull request*
+   [#1](https://github.com/naimi123/La-table-bonne/pull/1) par l'équipe, puis la fusionner
+   selon le processus du projet. La branche est déjà publiée ; ne pas repousser sur `main`.
 6. **Aligner** la couche services avec les contrats Back-End dès leur publication.
 7. **Planifier** le Sprint 2 : US05 (filtres), puis US06 → US07 → US08.
 
