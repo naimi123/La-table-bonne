@@ -6,7 +6,7 @@ Espace de documentation personnelle du volet **Front-End** du projet académique
 | Élément | Valeur |
 | --- | --- |
 | Développeur | Zakaria Adli |
-| GitHub | `zr7791474-blip` |
+| GitHub | [`Zakariaa-Adli`](https://github.com/Zakariaa-Adli) (`@Zkr_ad`) |
 | Rôle | Front-End Developer |
 | Dépôt | `naimi123/La-table-bonne` |
 | Branche de travail | `feature/zakaria-frontend-sprint1` |

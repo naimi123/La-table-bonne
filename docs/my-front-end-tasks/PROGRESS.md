@@ -57,6 +57,18 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 
 ## 3. Journal des modifications
 
+### 13 novembre 2026 — Migration du compte GitHub
+
+- Changement de pseudonyme GitHub : `zr7791474-blip` → **`Zakariaa-Adli`**
+  (`@Zkr_ad`). Les commits existants restent liés au même compte (identifiant GitHub
+  inchangé) ; aucun historique n'a été réécrit.
+- Identité Git globale alignée : `Zakariaa Adli <zakariaaadlii@gmail.com>`.
+- Le dépôt d'équipe `naimi123/La-table-bonne` et la branche
+  `feature/zakaria-frontend-sprint1` ne changent pas : aucun renommage de dépôt, aucun
+  nouveau remote, aucune réécriture.
+- La *pull request* #1 reste ouverte et accessible ; son auteur s'affiche désormais
+  `Zakariaa-Adli`.
+
 ### 13 novembre 2026 — Finalisation de la documentation et de la présentation GitHub
 
 - Mise à jour de l'avancement : remplacement de la mention « aucun `push` effectué » par
@@ -82,7 +94,8 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 
 ### 13 novembre 2026 — Sprint 1, livraison Front-End
 
-- Vérification de l'accès GitHub : compte `zr7791474-blip`, permission `push` confirmée,
+- Vérification de l'accès GitHub : compte `zr7791474-blip` (renommé `Zakariaa-Adli`
+  depuis), permission `push` confirmée,
   aucune invitation en attente.
 - Clonage du dépôt d'équipe dans `C:\Users\DELL\Documents\La-table-bonne`.
 - Création de la branche `feature/zakaria-frontend-sprint1` (aucune modification de `main`).
