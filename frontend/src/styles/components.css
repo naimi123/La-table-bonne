@@ -1,0 +1,821 @@
+/* ==========================================================================
+   Composants réutilisables — boutons, formulaires, alertes, cartes, états
+   ========================================================================== */
+
+/* --- Boutons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 14px 24px -18px rgba(135, 48, 31, 0.9);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  border-color: var(--color-line-strong);
+  color: var(--color-ink);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-ink-soft);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--color-bg-soft);
+  color: var(--color-ink);
+}
+
+.btn--sm {
+  padding: 0.42rem 0.85rem;
+  font-size: 0.82rem;
+}
+
+.btn--lg {
+  padding: 0.88rem 1.7rem;
+  font-size: 0.98rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn__spinner {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Champs -------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.field__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-ink-soft);
+}
+
+.field__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 0.94rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.field__input::placeholder {
+  color: #a99d92;
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(168, 69, 45, 0.14);
+  background: #fff;
+}
+
+.field__input--with-icon {
+  padding-left: 2.55rem;
+}
+
+.field__input--with-action {
+  padding-right: 2.7rem;
+}
+
+.field__icon {
+  position: absolute;
+  left: 0.85rem;
+  display: flex;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.field__action {
+  position: absolute;
+  right: 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.field__action:hover {
+  background: var(--color-bg-soft);
+  color: var(--color-ink);
+}
+
+.field__hint {
+  font-size: 0.77rem;
+  color: var(--color-muted);
+}
+
+.field__error {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-danger);
+}
+
+.field--invalid .field__input {
+  border-color: var(--color-danger);
+  background: #fffbfa;
+}
+
+.field--checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+}
+
+.field--checkbox input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.1rem;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* --- Alertes ------------------------------------------------------------- */
+
+.alert {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+.alert__icon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.alert__title {
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.alert__body > * + * {
+  margin-top: 0.4rem;
+}
+
+.alert--error {
+  background: var(--color-danger-soft);
+  border-color: #f0c7c0;
+  color: #7d221a;
+}
+
+.alert--success {
+  background: var(--color-success-soft);
+  border-color: #bfddcb;
+  color: #1f543a;
+}
+
+.alert--info {
+  background: var(--color-info-soft);
+  border-color: #c6d9e4;
+  color: #24485c;
+}
+
+/* --- Badges -------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.24rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge--accent {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.badge--muted {
+  background: var(--color-bg-soft);
+  color: var(--color-ink-soft);
+}
+
+.badge--outline {
+  background: transparent;
+  border: 1px solid var(--color-line-strong);
+  color: var(--color-muted);
+}
+
+/* --- Panneaux ------------------------------------------------------------ */
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  box-shadow: var(--shadow-xs);
+}
+
+.panel__title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.panel__title svg {
+  color: var(--color-accent);
+}
+
+/* --- Bandeau transparence ------------------------------------------------ */
+
+.mock-notice {
+  display: flex;
+  gap: 0.55rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-soft);
+  border: 1px dashed var(--color-line-strong);
+  color: var(--color-ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.mock-notice svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--color-accent);
+}
+
+/* --- Robustesse du mot de passe ----------------------------------------- */
+
+.strength {
+  margin-top: 0.5rem;
+}
+
+.strength__bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.strength__bar {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-line);
+  transition: background var(--transition-base);
+}
+
+.strength[data-score='1'] .strength__bar.is-active {
+  background: var(--color-danger);
+}
+
+.strength[data-score='2'] .strength__bar.is-active {
+  background: #c07a2c;
+}
+
+.strength[data-score='3'] .strength__bar.is-active {
+  background: #8a7a2e;
+}
+
+.strength[data-score='4'] .strength__bar.is-active {
+  background: var(--color-success);
+}
+
+.strength__label {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.strength__label strong {
+  color: var(--color-ink-soft);
+}
+
+/* --- Carte restaurant ---------------------------------------------------- */
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.6rem);
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.restaurant-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-bg-soft);
+}
+
+.restaurant-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg-soft);
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 420ms ease, transform 600ms ease;
+}
+
+.restaurant-image img.is-loaded {
+  opacity: 1;
+}
+
+.restaurant-card:hover .restaurant-image img {
+  transform: scale(1.045);
+}
+
+.restaurant-image__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, #ece1d2 20%, #f8f2e9 45%, #ece1d2 70%);
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+.restaurant-image--fallback {
+  display: grid;
+  place-items: center;
+  color: #b3a696;
+  background: linear-gradient(135deg, #efe5d7, #e4d7c5);
+}
+
+.restaurant-card__price {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: rgba(34, 31, 28, 0.82);
+  color: #f8f0e5;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(4px);
+}
+
+.restaurant-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.15rem 1.2rem 1.2rem;
+  flex: 1;
+}
+
+.restaurant-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.restaurant-card__title {
+  font-size: 1.14rem;
+  line-height: 1.25;
+}
+
+.restaurant-card__title a {
+  color: var(--color-ink);
+}
+
+.restaurant-card__title a:hover {
+  color: var(--color-accent-strong);
+}
+
+.restaurant-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #8a6a20;
+  white-space: nowrap;
+}
+
+.restaurant-card__rating svg {
+  fill: #d9a83e;
+  stroke: #d9a83e;
+}
+
+.restaurant-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.79rem;
+  color: var(--color-muted);
+}
+
+.restaurant-card__meta svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.restaurant-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.restaurant-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.restaurant-card__tags li {
+  font-size: 0.7rem;
+  padding: 0.16rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-soft);
+  color: var(--color-ink-soft);
+}
+
+.restaurant-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.78rem;
+}
+
+.restaurant-card__reviews {
+  color: var(--color-muted);
+}
+
+.restaurant-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-accent-strong);
+}
+
+.restaurant-card__link:hover {
+  gap: 0.45rem;
+}
+
+.restaurant-card--skeleton {
+  pointer-events: none;
+}
+
+/* --- Recherche ----------------------------------------------------------- */
+
+.search-form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr auto;
+  align-items: end;
+  gap: 0.7rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.search-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.search-form__field label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-left: 0.2rem;
+}
+
+.search-form__control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  border: 1px solid transparent;
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.search-form__control:focus-within {
+  background: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(168, 69, 45, 0.12);
+}
+
+.search-form__control svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.search-form__control input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.92rem;
+  outline: none;
+}
+
+.search-form__control input::placeholder {
+  color: #a99d92;
+}
+
+.search-form__submit {
+  height: 46px;
+}
+
+.search-form__error {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-danger);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.38rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+}
+
+.chip--active {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: #f7efe3;
+}
+
+.chip--active:hover {
+  color: #fff;
+}
+
+.chip svg {
+  opacity: 0.7;
+}
+
+.filters-note {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block: var(--space-5) var(--space-4);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.results-bar__count {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* --- État vide ----------------------------------------------------------- */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--space-5);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-lg);
+}
+
+.empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+  margin-bottom: var(--space-4);
+}
+
+.empty-state__title {
+  font-size: var(--text-xl);
+  margin-bottom: 0.4rem;
+}
+
+.empty-state__description {
+  max-width: 48ch;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.empty-state__action {
+  margin-top: var(--space-5);
+}
+
+/* --- Panneau jeton (démo US03) ------------------------------------------ */
+
+.token-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.token-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+}
+
+.token-panel__text {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.token-panel__value {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-line-strong);
+  font-size: 0.76rem;
+}
+
+/* --- Lien retour --------------------------------------------------------- */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+
+.back-link:hover {
+  color: var(--color-accent-strong);
+}
+
+@media (max-width: 900px) {
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form__submit {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+}
