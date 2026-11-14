@@ -25,7 +25,7 @@ Application disponible sur `http://localhost:5173`.
 | `npm run build` | Vérification TypeScript + build de production |
 | `npm run preview` | Prévisualisation du build |
 | `npm run typecheck` | Vérification des types uniquement |
-| `npm test` | Tests unitaires (Vitest) |
+| `npm test` | Tests unitaires et d'intégration (Vitest + React Testing Library) |
 
 ## Structure
 
