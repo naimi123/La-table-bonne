@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Projet académique — La Bonne Table (M210, TableConnect SARL)
