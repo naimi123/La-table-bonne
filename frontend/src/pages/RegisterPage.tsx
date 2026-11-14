@@ -30,6 +30,16 @@ const INITIAL_VALUES: RegisterValues = {
   acceptTerms: false,
 };
 
+/** Ordre d'affichage des champs, utilisé pour placer le focus sur la première erreur. */
+const FIELD_ORDER: ReadonlyArray<keyof RegisterValues> = [
+  'firstName',
+  'lastName',
+  'email',
+  'password',
+  'confirmPassword',
+  'acceptTerms',
+];
+
 export function RegisterPage() {
   useDocumentTitle('Créer un compte');
   const { register } = useAuth();
@@ -53,9 +63,18 @@ export function RegisterPage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
     const validation = validateRegister(values);
     setErrors(validation);
-    if (Object.keys(validation).length > 0) return;
+    if (Object.keys(validation).length > 0) {
+      // AC1.1 : le premier champ en erreur reçoit le focus.
+      const firstInvalidField = FIELD_ORDER.find((field) => validation[field]);
+      if (firstInvalidField) {
+        const element = form.elements.namedItem(firstInvalidField);
+        if (element instanceof HTMLElement) element.focus();
+      }
+      return;
+    }
 
     setIsSubmitting(true);
     setFormError(null);

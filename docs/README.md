@@ -19,6 +19,7 @@ docs/
     ├── JIRA-TASKS.md         Tâches à saisir manuellement dans Jira
     ├── ACCEPTANCE-CRITERIA.md Critères d'acceptation (Gherkin)
     ├── TEST-REPORT.md        Résultats de build, tests et audit
+    ├── AUDIT-SCRUM-41-46.md  Audit des sous-tâches Sprint 1 (US01 / US04)
     ├── PROGRESS.md           Avancement et prochaines actions
     └── evidence/             Captures et preuves de recette
 ```

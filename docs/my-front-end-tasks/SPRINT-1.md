@@ -11,7 +11,7 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 | Développeur | Zakaria Adli (Front-End) |
 | Branche | `feature/zakaria-frontend-sprint1` |
 | Dossier | `frontend/` |
-| Statut | Front-End livré en mode démonstration, en attente de revue d'équipe |
+| Statut | Front-End livré en mode démonstration, en attente de revue d'équipe — audit SCRUM-41/43/44/46 du 14 novembre 2026 |
 
 > Le Back-End n'étant pas disponible, les services sont simulés
 > (`VITE_USE_MOCK_API=true`). Les écrans sont réels et testables, mais **aucune
@@ -54,6 +54,7 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 ### Critères d'acceptation
 - [x] Tous les champs obligatoires sont présents et étiquetés.
 - [x] La soumission d'un formulaire vide affiche une erreur sous chaque champ.
+- [x] Le premier champ invalide reçoit le focus (corrigé et testé le 14 novembre 2026).
 - [x] Un e-mail invalide affiche « Le format de l'adresse e-mail est invalide ».
 - [x] Un mot de passe de moins de 8 caractères est refusé avec un message.
 - [x] La confirmation différente est refusée.
@@ -70,6 +71,7 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 ### Definition of Done
 - [x] Code fusionnable, sans erreur TypeScript (`npm run build`).
 - [x] Tests unitaires de validation passants.
+- [x] Tests d'intégration du formulaire ajoutés le 14 novembre 2026 (5 scénarios).
 - [x] Aucune erreur console sur le parcours.
 - [x] Mentions « mode démonstration » affichées.
 - [ ] Capture d'écran ajoutée dans `evidence/`.
@@ -238,7 +240,7 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 - Jeu de données de démonstration validé par le PO.
 
 ### Definition of Done
-- [x] Build et tests passants (filtrage couvert par tests unitaires).
+- [x] Build et tests passants (filtrage couvert par tests unitaires et d'intégration depuis le 14 novembre 2026).
 - [x] États chargement / vide / erreur / succès présents.
 - [x] Points de rupture CSS implémentés (480 / 760 / 900 / 980 px).
 - [ ] Recette visuelle réelle sur appareil (375 px) — **en attente**.
@@ -258,6 +260,6 @@ de récupérer l'accès à son compte et de trouver un restaurant par ville.
 | --- | --- | --- |
 | Authentification simulée | Remplacer `mockAuthApi` par l'API réelle | Dès livraison Back-End |
 | Images distantes | Passer sur des visuels hébergés/optimisés | Sprint 2 |
-| Tests d'interface | Ajouter React Testing Library (non installé pour limiter les dépendances) | Sprint 2 |
+| Tests d'interface | React Testing Library ajoutée le 14 novembre 2026 pour US01 et US04 ; étendre aux autres parcours | Sprint 2 |
 | Filtres cuisine | Prévu US05 | Sprint 2 |
 | Pagination | Non nécessaire pour 10 adresses | Sprint 3 si besoin |
