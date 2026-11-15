@@ -5,6 +5,15 @@
 > **aucune tâche n'a été créée, modifiée ou déplacée dans Jira**. Les identifiants
 > (`LBT-xx`) sont des **placeholders** à remplacer par les clés réelles générées par Jira.
 
+### Correspondance avec les sous-tâches réelles du Sprint 1
+
+| Sous-tâche Jira | Périmètre | Tâches suggérées ci-dessous | Audit |
+| --- | --- | --- | --- |
+| **SCRUM-41** | Intégration de l'interface de création de compte | `LBT-101` → `LBT-107` | [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md) |
+| **SCRUM-43** | Validation des scénarios de test et recette (US01) | `LBT-103`, `LBT-108`, `LBT-147` | [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md) |
+| **SCRUM-44** | Développement de la page de recherche | `LBT-131` → `LBT-137` | [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md) |
+| **SCRUM-46** | Test des résultats de recherche et filtre | `LBT-134`, `LBT-135`, `LBT-147` | [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md) |
+
 ---
 
 ## 1. Configuration proposée du projet Jira

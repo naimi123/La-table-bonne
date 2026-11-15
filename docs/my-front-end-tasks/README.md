@@ -30,6 +30,7 @@ Espace de documentation personnelle du volet **Front-End** du projet académique
 | [`JIRA-TASKS.md`](./JIRA-TASKS.md) | Tâches Front-End suggérées et stories parentes |
 | [`ACCEPTANCE-CRITERIA.md`](./ACCEPTANCE-CRITERIA.md) | Critères d'acceptation détaillés (Gherkin) |
 | [`TEST-REPORT.md`](./TEST-REPORT.md) | Résultats réels des tests, build et audit |
+| [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md) | Audit et compléments des sous-tâches Sprint 1 (US01 / US04) |
 | [`PROGRESS.md`](./PROGRESS.md) | Avancement, journal des modifications, prochaines étapes |
 | [`evidence/README.md`](./evidence/README.md) | Convention de nommage des captures d'écran |
 

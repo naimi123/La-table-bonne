@@ -9,6 +9,9 @@ Légende : ✅ vérifié · ⏳ à vérifier en revue · ❌ non applicable au F
 
 ## US01 — Inscription d'un client
 
+> Couverture automatisée du 14 novembre 2026 : `src/utils/validation.test.ts` (23 tests)
+> et `src/pages/RegisterPage.test.tsx` (5 tests d'intégration).
+
 ### AC1.1 — Champs obligatoires
 ```gherkin
 Étant donné que je suis sur la page /inscription
@@ -17,7 +20,8 @@ Alors chaque champ affiche un message d'erreur explicite
 Et le premier champ en erreur reçoit le focus
 Et aucun compte n'est créé
 ```
-✅ Vérifié : 6 messages affichés (prénom, nom, e-mail, mot de passe, confirmation, conditions).
+✅ Vérifié : 6 messages affichés (prénom, nom, e-mail, mot de passe, confirmation, conditions),
+focus sur le premier champ invalide (test d'interface + navigateur, 14 novembre 2026).
 
 ### AC1.2 — Format d'e-mail
 ```gherkin
@@ -177,6 +181,9 @@ Et le jeton de démonstration est affiché pour permettre la recette
 
 ## US04 — Recherche par ville
 
+> Couverture automatisée du 14 novembre 2026 : `src/services/restaurantFilters.test.ts`
+> (12 tests) et `src/pages/SearchPage*.test.tsx` (7 tests d'intégration/interface).
+
 ### AC4.1 — Recherche par ville
 ```gherkin
 Étant donné la page /recherche
@@ -210,7 +217,8 @@ Alors des squelettes de cartes sont affichés et la zone est marquée aria-busy
 Si le service échoue
 Alors un message d'erreur s'affiche avec un bouton « Réessayer »
 ```
-✅ Vérifié (squelettes observés, gestion d'erreur codée).
+✅ Vérifié (squelettes et `aria-busy` observés ; erreur et « Réessayer » testés avec un
+service simulé en échec, 14 novembre 2026).
 
 ### AC4.5 — URL partageable
 ```gherkin
@@ -233,7 +241,9 @@ Et si l'image distante échoue, un repli visuel s'affiche
 Alors la grille affiche 3 colonnes sur desktop, 2 sur tablette, 1 sur mobile
 Et la navigation se replie dans un menu « Menu »
 ```
-⏳ À valider visuellement en recette (points de rupture 480 / 760 / 900 / 980 px).
+✅ Vérifié dans Chromium le 14 novembre 2026 : 1 colonne à 375 px, 2 à 768 px, 3 à
+1280/1440 px, sans débordement horizontal ; menu mobile affiché. **Captures sur appareil
+physique à produire.**
 
 ### AC4.8 — Périmètre exclu
 ```gherkin
@@ -305,8 +315,8 @@ n'est implémentée.
 | --- | --- | --- |
 | Accessibilité | Aucun audit Lighthouse critique | ✅ 100 / 100 (accueil, desktop uniquement — voir [`TEST-REPORT.md`](./TEST-REPORT.md)) |
 | Contraste | ≥ 4,5:1 pour le texte courant | ✅ Corrigé (jeton `--color-muted`) |
-| Responsive | 375 px → 1440 px sans débordement horizontal | ⏳ Recette visuelle |
-| Performance | Bundle JS < 300 kB (hors gzip) | ✅ 232 kB |
+| Responsive | 375 px → 1440 px sans débordement horizontal | ✅ Chromium : 375 / 768 / 1280 / 1440 px, aucun débordement — appareil physique non testé |
+| Performance | Bundle JS < 300 kB (hors gzip) | ✅ 232,48 kB |
 | Erreurs console | 0 | ✅ Vérifié |
 | TypeScript | `strict` sans erreur | ✅ `npm run build` |
-| Tests unitaires | 100 % de réussite | ✅ 26/26 |
+| Tests automatisés | 100 % de réussite | ✅ 47/47 (35 unitaires + 12 d'intégration/interface) |

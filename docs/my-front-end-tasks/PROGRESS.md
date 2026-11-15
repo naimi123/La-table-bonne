@@ -1,6 +1,6 @@
 # Avancement — Front-End
 
-Dernière mise à jour : **13 novembre 2026**
+Dernière mise à jour : **14 novembre 2026**
 
 ---
 
@@ -50,12 +50,31 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
 | Composants | 12 composants UI + 4 composants de layout + 3 composants restaurants |
 | Services | `authService`, `restaurantService`, `mockAuthApi`, `apiClient`, `config`, `storage`, `restaurantFilters` |
 | Validation | Prénom, nom, e-mail, mot de passe, confirmation, conditions, recherche |
-| Tests | 26 tests unitaires (validation + filtrage) |
+| Tests | 47 tests (35 unitaires + 12 d'intégration/interface), voir [`TEST-REPORT.md`](./TEST-REPORT.md) |
 | Qualité | Build sans erreur, 0 erreur console, Lighthouse 100/100/100 (page d'accueil, desktop — voir [`TEST-REPORT.md`](./TEST-REPORT.md)) |
 
 ---
 
 ## 3. Journal des modifications
+
+### 14 novembre 2026 — Audit SCRUM-41/43/44/46 et tests d'interface
+
+- Audit des quatre sous-tâches Jira confiées au volet Front-End, sans recréer de page.
+- **SCRUM-41** : seul écart fonctionnel constaté, le focus du premier champ invalide
+  (AC1.1) ; corrigé dans `RegisterPage.tsx` et vérifié dans Chromium.
+- **SCRUM-43** : ajout de 5 tests d'intégration pour l'inscription et de 4 tests de
+  validation supplémentaires.
+- **SCRUM-44** : page de recherche déjà complète ; aucun code de production modifié.
+- **SCRUM-46** : ajout de 7 tests d'intégration/interface pour les résultats, les états
+  chargement/vide/erreur et le changement de ville, ainsi que 5 tests de filtrage sur le
+  catalogue réel.
+- Ajout de React Testing Library, `user-event`, `jest-dom` et `jsdom` en dépendances de
+  développement ; configuration Vitest en environnement `jsdom`.
+- Résultats : **47/47 tests réussis**, build réussi (JS 232,48 kB), **0 erreur console**
+  sur les parcours vérifiés.
+- Vérification responsive dans Chromium à 375, 768, 1280 et 1440 px : aucun débordement.
+- **Aucun commit, `push` ou changement de statut Jira.** Détail :
+  [`AUDIT-SCRUM-41-46.md`](./AUDIT-SCRUM-41-46.md).
 
 ### 13 novembre 2026 — Migration du compte GitHub
 
@@ -132,6 +151,8 @@ Légende : ✅ terminé · 🟡 partiel / préparation · ⏳ en attente · — 
    selon le processus du projet. La branche est déjà publiée ; ne pas repousser sur `main`.
 6. **Aligner** la couche services avec les contrats Back-End dès leur publication.
 7. **Planifier** le Sprint 2 : US05 (filtres), puis US06 → US07 → US08.
+8. **Étendre** les tests d'interface aux parcours US02 et US03 (connexion, jetons) et
+   produire les captures d'écran de `evidence/`.
 
 ---
 

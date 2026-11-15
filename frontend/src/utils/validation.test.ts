@@ -4,6 +4,8 @@ import {
   normalizeSearchTerm,
   sanitizeText,
   validateEmail,
+  validateFirstName,
+  validateLastName,
   validateLogin,
   validatePassword,
   validateRegister,
@@ -66,6 +68,26 @@ describe('validateRegister', () => {
     expect(validateRegister(validValues)).toEqual({});
   });
 
+  it('signale les six champs manquants dans l’ordre du formulaire', () => {
+    const errors = validateRegister({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      acceptTerms: false,
+    });
+
+    expect(Object.keys(errors)).toEqual([
+      'firstName',
+      'lastName',
+      'email',
+      'password',
+      'confirmPassword',
+      'acceptTerms',
+    ]);
+  });
+
   it('signale la confirmation différente', () => {
     const errors = validateRegister({ ...validValues, confirmPassword: 'Autre2026' });
     expect(errors.confirmPassword).toBe('Les deux mots de passe ne correspondent pas.');
@@ -79,6 +101,21 @@ describe('validateRegister', () => {
   it('signale un prénom trop court', () => {
     const errors = validateRegister({ ...validValues, firstName: 'Z' });
     expect(errors.firstName).toBeDefined();
+  });
+});
+
+describe('validateFirstName / validateLastName', () => {
+  it('accepte les prénoms et noms accentués', () => {
+    expect(validateFirstName('Amélie')).toBeUndefined();
+    expect(validateLastName('Ben-Cherif')).toBeUndefined();
+  });
+
+  it('refuse un nom composé uniquement d’espaces', () => {
+    expect(validateLastName('   ')).toBe('Le nom est obligatoire.');
+  });
+
+  it('refuse un prénom d’un seul caractère', () => {
+    expect(validateFirstName('Z')).toContain('au moins 2 lettres');
   });
 });
 
